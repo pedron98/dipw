@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Callback</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+		<!-- Script JavaScript -->
+		<script>
+			var idade = 10
+
+			function checaIdade(idade) {
+				if(idade >= 18) return "de maior"
+
+				else return "menor de idade"	
+				
+			}
+
+			//Callback = Melhor tempo de processamento
+			function imprime(nome, checaIdade){
+				confirm(nome + checaIdade(idade))
+			}
+
+			imprime('Fulano é ', checaIdade)
+
+		</script>
+
+	</body>
+</html>

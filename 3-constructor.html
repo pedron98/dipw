@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Constructor</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+		<!-- Script JavaScript -->
+		<script>
+			
+			var Carro = function(nome, cor, marca, ano) {
+
+				this.nome = nome
+				this.cor = cor
+				this.marca = marca
+				this.ano = ano
+
+			}
+
+			Carro.prototype.checaAnoCarro = function() {
+				if(this.ano < 2019) confirm("Carro velho")
+				else confirm("Carro novo")
+			}
+
+			var fusca = new Carro('Fusca', 'Azul', 'VW', 1975)
+			var gol = new Carro('Gol', 'Branco', 'VW', 1998)
+
+			confirm(fusca.marca)
+			fusca.checaAnoCarro()
+			confirm(gol.ano) 
+
+		</script>
+
+	</body>
+</html>

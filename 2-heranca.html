@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Herança</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+		<!-- Script JavaScript -->
+		<script>
+			
+			var pessoa = {
+				nome: "Pedro",
+				sobrenome: "Vieira",
+				imprime: function(){
+					confirm(this.nome + " " + this.sobrenome)
+				}
+
+			}
+
+			var filhoPessoa = {
+				nome: "Theo"
+			}
+
+			Object.setPrototypeOf(filhoPessoa, pessoa)
+			filhoPessoa.imprime()
+
+		</script>
+
+	</body>
+</html>
