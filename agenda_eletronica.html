@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Agenda de Contatos</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+
+		<!--Script JavaScript-->
+		<script>
+			var Contato = {
+				nome: "",
+				telefone: "",				
+			};
+
+			Contato.prototype.imprime = function(){
+				confirm("Nome: " + this.nome + "\nTelefone: " + this.telefone)
+			}
+
+			//Lista dinâmica vazia
+			var agenda = []
+
+			function cadastraContato() {
+				var nome = document.getElementById('nome').value
+				var telefone = document.getElementById('telefone').value
+
+				var contato = new Contato(nome, telefone)
+				agenda.push(contato)
+
+				//limpa os campos
+				document.getElementById('nome').value = ""
+				document.getElementById('telefone').value = ""
+
+				confirm('Contato cadastrado com sucesso!')
+			}
+
+			function imprimeContato(){
+				var id = parseInt(prompt("Digite o ID do contato: "))
+
+				agenda[id].imprime()
+			}
+
+			function imprimeAgenda(){
+				agenda.forEach(imprimeTudo)
+
+				function imprimeTudo(contato) {
+					contato.imprime()
+				}
+
+			}
+		</script>
+
+		<h1>Agenda Eletrônica</h1>
+
+		<p>Nome: <input type="text" id="nome" /></p>
+		<p>Telefone: <input type="text" id="telefone" /></p>
+		<p><button onclick="cadastraContato()" type="button">Cadastrar</button></p>
+
+		<hr />
+
+		<button type="button" onclick="imprimeContato()">Exibir Contato</button>
+		<button type="button" onclick="imprimeAgenda()">Exibir Agenda</button>
+
+	</body>
+</html>
