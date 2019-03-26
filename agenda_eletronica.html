@@ -8,9 +8,9 @@
 
 		<!--Script JavaScript-->
 		<script>
-			var Contato = {
-				nome: "",
-				telefone: "",				
+			var Contato = function(nome, telefone){
+				this.nome = ""
+				this.telefone = ""				
 			};
 
 			Contato.prototype.imprime = function(){
