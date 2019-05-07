@@ -11,14 +11,40 @@
         <script>
             var app = angular.module("meuCarrinho", [])
             app.controller("meuControl", function($scope){
-                $scope.produtos = ["Camisa", "Blusa"]
+                $scope.produtos = ["Camisa", "Blusa"];
+                $scope.adicionar = function() {
+
+                    $scope.erro = "";
+
+                    if(!$scope.meAdicione) { return; }
+
+                    if($scope.produtos.indexOf($scope.meAdicione) == -1) {
+                       $scope.produtos.push($scope.meAdicione); 
+                    }
+                    else {
+                        $scope.erro = "O item já existe no carrinho!"
+                    }      
+                }
+                $scope.remover = function(item) {
+                    $scope.produtos.splice(item, 1);
+                    $scope.erro = ""
+                }
             })
         </script>
 
         <div ng-app="meuCarrinho" ng-controller="meuControl">
             <ul>
-                <li ng-repeat="produto in produtos">{{ produto }}</li>
+                <li ng-repeat="produto in produtos">
+                    {{ produto }} <span ng-click="remover($index)"> | x</span>
+                </li>
             </ul>
+
+            <input type="text" ng-model="meAdicione">
+
+            <button ng-click="adicionar()">
+                Incluir no carrinho
+            </button>
+            <p>{{ erro }}</p>
         </div>
     </body>
 </html>
